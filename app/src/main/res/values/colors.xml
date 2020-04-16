@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorPrimaryHome">#000000</color>
+    <color name="colorPrimaryDarkHome">#AA5FE0</color>
+    <color name="colorAccentHome">#F0AFAF</color>
+
+    <color name="textColorBlack">#000000</color>
+    <color name="textColorWhite">#FFFFFF</color>
+
+    <color name="colorIncome">#6FCF97</color>
+    <color name="colorExpense">#F2C94C</color>
+
+
+</resources>

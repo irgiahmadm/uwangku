@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">UWangkU</string>
+    <string name="title_activity_main">UWangkU</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="setting_image">setting_image</string>
+    <string name="greetings_text">Have a Nice Day !</string>
+    <string name="expense_text">Expenses</string>
+    <string name="jumlah_pengeluaran">Rp 200.000</string>
+    <string name="income_text">Income</string>
+    <string name="pengeluaran_image">pengeluaran_image</string>
+    <string name="pemasukkan_image">pemasukkan_image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chart">Chart</string>
+    <string name="transactions">Transactions</string>
+    <string name="latest_transaction">Latest Transaction</string>
+    <string name="image_income">image_income</string>
+    <string name="shopping">Shopping</string>
+    <string name="amount_hint">16000</string>
+    <string name="add">Add</string>
+    <string name="write_a_memo">Write a memo</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="place_holder_date">20 Maret 2020</string>
+    <string name="total_amount">20000</string>
+    <string name="expense">type_expense</string>
+    <string name="error_insert">Data harus lengkap</string>
+    <string name="succes_insert_income">Berhasil menambahkan pemasukkan</string>
+    <string name="succes_insert_save">Berhasil menambahkan save data</string>
+    <string name="succes_insert_expense">Berhasil menambahkan pengeluaran</string>
+    <string name="total_balance">Total Balance : 50.000.000</string>
+    <string name="username">Irgi Ahmad Maulana</string>
+    <string name="date_now">20/03/17</string>
+    <string name="total_income">Total Income :</string>
+    <string name="total_income_value">340.000</string>
+    <string name="total_expense_value">40000</string>
+    <string name="total_expenses">Total Expenses:</string>
+    <string name="target_time">Target Time</string>
+    <string name="date_hint">Click me</string>
+    <string name="save">Save</string>
+    <string name="empty_state_save">empty_state_save</string>
+    <string name="text_empty_state_save">Looks like you have nothin in here.</string>
+</resources>
