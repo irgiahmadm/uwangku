@@ -3,6 +3,7 @@ package org.d3ifcool.uwangku.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "save")
 data class Save(
@@ -20,9 +21,9 @@ data class Save(
     var totalAkhir : Int,
 
     @ColumnInfo(name = "target_tanggal")
-    var targetTanggal:String,
+    var targetTanggal: Date?,
 
     @ColumnInfo(name = "tgl_buat")
-    var dibuatTanggal:String
+    var dibuatTanggal:Date?
 
 )

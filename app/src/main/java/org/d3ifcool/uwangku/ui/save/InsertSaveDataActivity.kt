@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import org.d3ifcool.uwangku.databinding.ActivityInsertSaveDataBinding
 import java.util.*
 import android.os.Build
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
@@ -22,7 +23,8 @@ class InsertSaveDataActivity : AppCompatActivity() {
 
     private lateinit var viewModel: SaveViewModel
     private lateinit var binding : ActivityInsertSaveDataBinding
-
+    private var date : Date? = null
+    @SuppressLint("SimpleDateFormat")
     @TargetApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,10 +54,14 @@ class InsertSaveDataActivity : AppCompatActivity() {
                 else -> {
                     val transactionName = binding.editTextWriteMemoSave.text.toString()
                     val saveAmount = binding.editTextAmountSave.text.toString().toInt()
-                    val targetTime = binding.textViewTargetTime.text.toString()
+                    val targetTimeString = binding.textViewTargetTime.text.toString()
+                    val formatter = SimpleDateFormat("dd MMM, yyyy")
+                    val today = Date()
+
+                    val targetTimeDate = formatter.parse(targetTimeString)
 
                     //TODO CHANGE SAVE
-                    val save = Save(0,transactionName,0,saveAmount,targetTime)
+                    val save = Save(0,transactionName,0,saveAmount,targetTimeDate,today)
                     viewModel.insertSave(save)
                     Toast.makeText(this, R.string.succes_insert_save, Toast.LENGTH_SHORT)
                         .show()
@@ -69,19 +75,22 @@ class InsertSaveDataActivity : AppCompatActivity() {
     private fun getDatePicker(){
 
         val c = Calendar.getInstance()
-
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         c.add(Calendar.DAY_OF_YEAR, 1)
-        val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, _year, _, dayOfMonth ->
+        val dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, _year, _month, dayOfMonth ->
+            val c2 = Calendar.getInstance()
+            c2.add(Calendar.DAY_OF_YEAR, 1)
+            c2.set(_year,_month,dayOfMonth)
             val strDate = SimpleDateFormat("yyyy-MM-dd")
             val formatter = SimpleDateFormat("dd MMM, yyyy")
 
             //TODO add formatter for API 26 or above
             val formatedDate = formatter.format(strDate.parse("$_year-0$month-$dayOfMonth")!!)
 
-            binding.textViewTargetTime.text = formatedDate.toString()
+            binding.textViewTargetTime.text = formatedDate
+            date = c2.time
         }, year, month, day)
 
         dialog.datePicker.minDate = c.timeInMillis

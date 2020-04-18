@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 @Database(entities = [Transaction::class, Save::class], version = 1,  exportSchema = false)
+@TypeConverters(DateConverters::class)
 abstract class UwangkuDatabase : RoomDatabase(){
 
     abstract val transactionDAO : TransactionDAO

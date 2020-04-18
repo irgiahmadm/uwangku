@@ -7,26 +7,16 @@
             name="transaction"
             type="org.d3ifcool.uwangku.database.Transaction" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="16dp"
-            android:background="#F2F2F2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="@{transaction.tglTransaksi}"
             android:textColor="@color/textColorBlack"
             app:layout_constraintBottom_toBottomOf="@+id/view2"
             app:layout_constraintStart_toEndOf="@+id/viewType"
@@ -37,10 +27,10 @@
             android:layout_width="3dp"
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:background="#F2F2F2F2"
             app:layout_constraintStart_toEndOf="@+id/textViewDate"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewNote"
@@ -75,5 +65,13 @@
             app:layout_constraintBottom_toBottomOf="@+id/textViewDate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textViewDate" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,9 +1,9 @@
 package org.d3ifcool.uwangku.database
 
-import android.graphics.Bitmap
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "transaksi")
 data class  Transaction(
@@ -21,6 +21,6 @@ data class  Transaction(
     var total : Int,
 
     @ColumnInfo(name = "tanggal")
-    var tglTransaksi:String
+    var tglTransaksi: Date?
 
 )

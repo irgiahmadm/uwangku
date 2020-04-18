@@ -48,11 +48,13 @@ class InsertExpenseActivity : AppCompatActivity() {
                     val transactionType = TYPE_EXPENSE
 
                     //TODO add formatter for API 26 or above
-                    val today = LocalDateTime.now()
+                    /*val today = LocalDateTime.now()
                     val formatter = DateTimeFormatter.ofPattern("dd MMM, yyyy")
-                    val todayDate = today.format(formatter)
+                    val todayDate = today.format(formatter)*/
 
-                    val transaction = Transaction(0,transactionName,transactionType,transactionAmount,todayDate)
+                    val today = Date()
+
+                    val transaction = Transaction(0,transactionName,transactionType,transactionAmount,today)
                     viewModel.insertTransactions(transaction)
                     Toast.makeText(this, R.string.succes_insert_expense, Toast.LENGTH_SHORT)
                         .show()

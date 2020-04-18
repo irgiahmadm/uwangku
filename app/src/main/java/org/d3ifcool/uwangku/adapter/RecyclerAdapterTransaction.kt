@@ -13,6 +13,7 @@ import org.d3ifcool.uwangku.database.Transaction
 import org.d3ifcool.uwangku.databinding.TransactionItemBinding
 import org.d3ifcool.uwangku.ui.transaction.TYPE_EXPENSE
 import org.d3ifcool.uwangku.ui.transaction.TYPE_INCOME
+import java.text.SimpleDateFormat
 
 class RecyclerAdapterTransaction(var context: Context,private val listener : (Transaction) -> Unit) :
     RecyclerView.Adapter<RecyclerAdapterTransaction.TransactionViewHolder>() {
@@ -38,7 +39,7 @@ class RecyclerAdapterTransaction(var context: Context,private val listener : (Tr
     }
 
     class TransactionViewHolder(val binding: TransactionItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("SetTextI18n")
+        @SuppressLint("SetTextI18n", "SimpleDateFormat")
         fun bindItem(transactions:Transaction, listener: (Transaction) -> Unit) {
 
             if(transactions.jenis == TYPE_EXPENSE){
@@ -49,6 +50,9 @@ class RecyclerAdapterTransaction(var context: Context,private val listener : (Tr
                 binding.textViewAmount.text = "+" + transactions.total.toString()
                 binding.viewType.setBackgroundResource(R.drawable.income_type)
             }
+            val formatter = SimpleDateFormat("dd MMM, yyyy")
+            val date = formatter.format(transactions.tglTransaksi!!)
+            binding.textViewDate.text = date
             binding.transaction = transactions
             binding.executePendingBindings()
         }

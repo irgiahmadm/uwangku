@@ -14,6 +14,7 @@ import org.d3ifcool.uwangku.database.UwangkuDatabase
 import org.d3ifcool.uwangku.databinding.ActivityInsertIncomeBinding
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 const val TYPE_INCOME = "type_income"
 class InsertIncomeActivity : AppCompatActivity() {
@@ -47,11 +48,14 @@ class InsertIncomeActivity : AppCompatActivity() {
                     val transactionAmount = binding.editTextAmountIncome.text.toString().toInt()
                     val transactionType = TYPE_INCOME
 
-                    val today = LocalDateTime.now()
+                    //API 26
+                    /*val today = LocalDateTime.now()
                     val formatter = DateTimeFormatter.ofPattern("dd MMM, yyyy")
-                    val todayDate = today.format(formatter)
+                    val todayDate = today.format(formatter)*/
 
-                    val transaction = Transaction(0,transactionName,transactionType,transactionAmount,todayDate)
+                    val today = Date()
+
+                    val transaction = Transaction(0,transactionName,transactionType,transactionAmount,today)
                     viewModel.insertTransactions(transaction)
                     Toast.makeText(this, R.string.succes_insert_income, Toast.LENGTH_SHORT)
                         .show()
