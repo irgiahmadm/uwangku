@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface TransactionDAO{
 
-    //insert Transaction data
+    //Transaction data
     @Insert
     fun insertTransaksi(transaction: Transaction)
 
@@ -19,9 +19,9 @@ interface TransactionDAO{
     fun getAllData() : LiveData<List<Transaction>>
 
     @Query("SELECT SUM(total) FROM transaksi WHERE jenis = :jenis")
-    fun getTotalByType(jenis : String) : LiveData<Int>?
+    fun getTotalByType(jenis : String) : Int
 
-    //insert Save/Wishlist data
+    //Save/Wishlist data
     @Insert
     fun insertSave(save:Save)
 

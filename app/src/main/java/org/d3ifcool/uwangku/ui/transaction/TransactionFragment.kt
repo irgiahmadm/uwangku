@@ -41,12 +41,12 @@ class TransactionFragment : Fragment() {
         binding.rvTransaction.layoutManager = LinearLayoutManager(container!!.context)
 
         val adapter = RecyclerAdapterTransaction(container.context){
-            //do intent
+
         }
 
         binding.rvTransaction.adapter = adapter
 
-        viewModel.getTransactionList().observe(this, Observer<List<Transaction>>{ list ->
+        viewModel.getTransactionList().observe(viewLifecycleOwner, Observer<List<Transaction>>{ list ->
             adapter.setListTransaction(list as ArrayList<Transaction>)
         })
 

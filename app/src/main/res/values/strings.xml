@@ -5,7 +5,7 @@
     <string name="title_profile">Profile</string>
     <string name="setting_image">setting_image</string>
     <string name="greetings_text">Have a Nice Day !</string>
-    <string name="expense_text">Expenses</string>
+    <string name="expense_text">Expense</string>
     <string name="jumlah_pengeluaran">Rp 200.000</string>
     <string name="income_text">Income</string>
     <string name="pengeluaran_image">pengeluaran_image</string>
@@ -41,4 +41,5 @@
     <string name="save">Save</string>
     <string name="empty_state_save">empty_state_save</string>
     <string name="text_empty_state_save">Looks like you have nothin in here.</string>
+
 </resources>

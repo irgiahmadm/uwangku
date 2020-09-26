@@ -1,5 +1,6 @@
 package org.d3ifcool.uwangku.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -17,24 +18,41 @@ class HomeViewModel(val database : TransactionDAO) : ViewModel(){
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModel)
 
-    private val getTransaction = database.getAllData()
-
     val typeIncome = TYPE_INCOME
     val typeExpense = TYPE_EXPENSE
 
-    fun getIncome() = database.getTotalByType(typeIncome)
+
+    /*fun getIncome() = database.getTotalByType(typeIncome)
     fun getExpense() = database.getTotalByType(typeExpense)
 
-    fun insertTransactions(transaction: Transaction){
+    fun getBalance() =  - getExpense() as MutableLiveData*/
+
+    private var _income = MutableLiveData<Int>()
+    val income : LiveData<Int>
+        get() = _income
+
+    private var _expense = MutableLiveData<Int>()
+    val expense : LiveData<Int>
+        get() = _expense
+
+    private var _balance = MutableLiveData<Int>()
+    val balance : LiveData<Int>
+        get() = _balance
+
+
+    init{
         uiScope.launch {
-            insert(transaction)
+            _income.value = getDataIncome()
+            _expense.value = getDataExpense()
+            _balance.value = _income.value!!.minus(_expense.value!!)
+            Log.d("INCOME ", balance.value.toString())
         }
     }
 
-    suspend fun insert(transaction: Transaction){
-        withContext(Dispatchers.IO){
-            database.insertTransaksi(transaction)
-        }
+    private suspend fun getDataIncome() = withContext(Dispatchers.IO){
+        database.getTotalByType(typeIncome)
     }
-
+    private suspend fun getDataExpense() = withContext(Dispatchers.IO){
+        database.getTotalByType(typeExpense)
+    }
 }

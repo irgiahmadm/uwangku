@@ -2,11 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable
-            name="homeViewModel"
-            type="org.d3ifcool.uwangku.ui.home.HomeViewModel" />
-    </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -117,7 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:text="@{String.valueOf(homeViewModel.getIncome())}"
+                    android:text="0"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/textColorBlack"
                     app:layout_constraintBottom_toBottomOf="@+id/textView9"
@@ -136,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:text="@{String.valueOf(homeViewModel.getExpense())}"
+                    android:text="0"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/textColorBlack"
                     app:layout_constraintBottom_toBottomOf="@+id/textView10"

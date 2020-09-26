@@ -1,5 +1,6 @@
 package org.d3ifcool.uwangku.ui.transaction
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
+import org.d3ifcool.uwangku.MainActivity
 import org.d3ifcool.uwangku.R
 import org.d3ifcool.uwangku.database.Transaction
 import org.d3ifcool.uwangku.database.UwangkuDatabase
@@ -58,6 +60,7 @@ class InsertExpenseActivity : AppCompatActivity() {
                     viewModel.insertTransactions(transaction)
                     Toast.makeText(this, R.string.succes_insert_expense, Toast.LENGTH_SHORT)
                         .show()
+                    startActivity(Intent(this,MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                     finish()
                 }
             }
